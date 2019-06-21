@@ -46,10 +46,20 @@ describe('Server test', () => {
             expect(games).toHaveLength(2);
           });
 
-          it('Should display 422 success', async () => {
+        it('Should display 201 success', async () => {
             await supertest(server)
                 .post('/games')
-                expect(422);
+                expect(201);
         });
+
+        it('Should display 422', async () => {
+            await insert({ title: 'Zelda', genre:'fantasy', releaseYear: '1993' });
+
+            await supertest(server)
+            insert('/hobbits')
+            .then(res => {
+            expect(422);
+            });
+        })
     })
 });

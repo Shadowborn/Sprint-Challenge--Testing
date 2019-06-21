@@ -25,9 +25,11 @@ server.post('/games', (req, res) => {
   Games.getAll()
     .insert(req.body, 'id')
     .then(ids => {
-    res.status(422).json(ids);
+    res.status(200).json(ids);
   }).catch(error => {
     res.status(500).json(error);
+  }).catch(incomplete => {
+    res.status(422).json(incomplete);
   });
 });
 
