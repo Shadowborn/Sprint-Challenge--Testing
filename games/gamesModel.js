@@ -8,9 +8,9 @@ module.exports = {
   findById,
 };
 
-function insert(hobbit) {
+function insert(game) {
   return db('games')
-    .insert(hobbit, 'id')
+    .insert(game, 'id')
     .then(ids => {
       return db('games')
         .where({ id: ids[0] })
@@ -22,9 +22,9 @@ async function update(id, changes) {
   return undefined;
 }
 
-function remove(hobbit) {
+function remove(game) {
   return db('games')
-  .del(hobbit, 'id');
+  .del(game, 'id');
 }
 
 function getAll() {
@@ -33,7 +33,7 @@ function getAll() {
 
 function findById(id) {
   return db('games')
-    .findById(hobbit, 'id')
+    .findById(game, 'id')
     .then(ids => {
       return db('games')
         .where({ id: ids[0] })
