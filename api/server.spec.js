@@ -57,7 +57,9 @@ describe('Server test', () => {
 
             await supertest(server)
             insert('/hobbits')
+            .then(res => {
             expect(422);
+            });
         })
     })
 });
